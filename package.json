@@ -1,11 +1,13 @@
 {
   "name": "basic-node-express-mongo",
   "version": "1.0.0",
-  "description": "Basic project with NodeJS, Express, and MongoDB.",
+  "description": "Basic project with NodeJS, Express, MongoDB, and Typescript.",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/index.js",
-    "start:dev": "NODE_ENV=development nodemon src/index.js"
+    "start": "NODE_ENV=production node dist/index.js",
+    "start:dev": "NODE_ENV=development concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "build": "npx tsc",
+    "lint": "npx eslint . --ext .ts"
   },
   "author": "David T. Pizarro Frick",
   "license": "ISC",
@@ -16,9 +18,16 @@
     "mongoose": "^7.2.0"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.4",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "concurrently": "^8.2.0",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "typescript": "^5.1.3"
   }
 }

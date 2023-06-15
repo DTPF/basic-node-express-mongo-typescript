@@ -1,6 +1,7 @@
+import { Request, Response } from 'express';
 const db = require('../models');
 
-async function helloWorld(req, res) {
+async function helloWorld(req: Request, res: Response) {
   try {
     const getModels = await db.Model.find();
     return res.status(200).send({

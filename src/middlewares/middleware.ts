@@ -1,4 +1,6 @@
-const middleware = async (req, res, next) => {
+import { Request, Response, NextFunction } from 'express';
+
+const middleware = async (req: Request, res: Response, next: NextFunction) => {
   // eslint-disable-next-line no-constant-condition, no-self-compare
   if (1 === 1) {
     return res.status(401).send({ status: 401, msg: 'Unathorized' });
